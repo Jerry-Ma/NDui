@@ -4,7 +4,7 @@ local Bar = B:GetModule("Actionbar")
 local cfg = C.bars.bar4
 
 function Bar:CreateBar4()
-	local padding, margin = 2, 2
+	local padding, margin = NDuiDB["UI"]["ActionBarFramePadding"], NDuiDB["UI"]["ActionBarButtonMargin"]
 	local num = NUM_ACTIONBAR_BUTTONS
 	local buttonList = {}
 	local layout = NDuiDB["Actionbar"]["Style"]
@@ -22,7 +22,8 @@ function Bar:CreateBar4()
 	else
 		frame:SetWidth(cfg.size + 2*padding)
 		frame:SetHeight(num*cfg.size + (num-1)*margin + 2*padding)
-		frame.Pos = {"RIGHT", UIParent, "RIGHT", -1, 0}
+        local pos_x = layout == 6 and NDuiDB["UI"]["WorldDivX"][2] or -1
+		frame.Pos = {"RIGHT", UIParent, "RIGHT", pos_x, 0}
 	end
 
 	--move the buttons into position and reparent them

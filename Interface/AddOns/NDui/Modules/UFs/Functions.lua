@@ -150,7 +150,9 @@ function UF:CreateHealthText(self)
 		self:Tag(name, colorStr.."[name]")
 	end
 
-	local hpval = B.CreateFS(textFrame, retVal(self, 14, 13, 13, 13, NDuiDB["Nameplate"]["HealthTextSize"]), "", false, "RIGHT", -3, -1)
+    local fs1, fs2, fs3, fs4 = unpack(NDuiDB["UI"]["UFHealthTextFS"])
+    -- print("UF hp text font size "..fs1.." "..fs2.." "..fs3.." "..fs4..".")
+	local hpval = B.CreateFS(textFrame, retVal(self, fs1, fs2, fs3, fs4, NDuiDB["Nameplate"]["HealthTextSize"]), "", false, "RIGHT", -3, -1)
 	if mystyle == "raid" then
 		if NDuiDB["UFs"]["SimpleMode"] and not self.isPartyFrame then
 			hpval:SetPoint("RIGHT", -4, 0)
@@ -255,7 +257,9 @@ function UF:CreatePowerText(self)
 	local textFrame = CreateFrame("Frame", nil, self)
 	textFrame:SetAllPoints(self.Power)
 
-	local ppval = B.CreateFS(textFrame, retVal(self, 13, 12, 12, 12), "", false, "RIGHT", -3, 2)
+    local fs1, fs2, fs3, fs4 = unpack(NDuiDB["UI"]["UFPowerTextFS"])
+    -- print("UF power text font size "..fs1.." "..fs2.." "..fs3.." "..fs4..".")
+	local ppval = B.CreateFS(textFrame, retVal(self, fs1, fs2, fs3, fs4), "", false, "RIGHT", -3, 2)
 	self:Tag(ppval, "[color][power]")
 	self.powerText = ppval
 end
@@ -308,6 +312,8 @@ local function postUpdateRole(element, role)
 end
 
 function UF:CreateIcons(self)
+    local uf_icon_size1 = NDuiDB["UI"]["UFIconSize"][1]
+    -- print("uf_icon_size "..uf_icon_size1..".")
 	local mystyle = self.mystyle
 	if mystyle == "player" then
 		local combat = self:CreateTexture(nil, "OVERLAY")
@@ -341,19 +347,19 @@ function UF:CreateIcons(self)
 	else
 		ri:SetPoint("TOPRIGHT", self, 0, 8)
 	end
-	ri:SetSize(12, 12)
+	ri:SetSize(uf_icon_size1, uf_icon_size1)
 	ri:SetTexture("Interface\\LFGFrame\\LFGROLE")
 	ri.PostUpdate = postUpdateRole
 	self.GroupRoleIndicator = ri
 
 	local li = self:CreateTexture(nil, "OVERLAY")
 	li:SetPoint("TOPLEFT", self, 0, 8)
-	li:SetSize(12, 12)
+	li:SetSize(uf_icon_size1, uf_icon_size1)
 	self.LeaderIndicator = li
 
 	local ai = self:CreateTexture(nil, "OVERLAY")
 	ai:SetPoint("TOPLEFT", self, 0, 8)
-	ai:SetSize(12, 12)
+	ai:SetSize(uf_icon_size1, uf_icon_size1)
 	self.AssistantIndicator = ai
 end
 

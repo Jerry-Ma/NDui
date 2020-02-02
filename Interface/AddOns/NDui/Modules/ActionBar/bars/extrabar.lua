@@ -7,12 +7,17 @@ function Bar:CreateExtrabar()
 	local padding, margin = 10, 5
 	local num = 1
 	local buttonList = {}
+    local layout = NDuiDB["Actionbar"]["Style"]
 
 	--create the frame to hold the buttons
 	local frame = CreateFrame("Frame", "NDui_ActionBarExtra", UIParent, "SecureHandlerStateTemplate")
 	frame:SetWidth(num*cfg.size + (num-1)*margin + 2*padding)
 	frame:SetHeight(cfg.size + 2*padding)
-	frame.Pos = {"BOTTOM", UIParent, "BOTTOM", 250, 100}
+    if layout == 6 then
+		frame.Pos = {"BOTTOM", UIParent, "BOTTOM", 550, 450}
+    else
+        frame.Pos = {"BOTTOM", UIParent, "BOTTOM", 250, 100}
+    end
 
 	--move the buttons into position and reparent them
 	ExtraActionBarFrame:SetParent(frame)

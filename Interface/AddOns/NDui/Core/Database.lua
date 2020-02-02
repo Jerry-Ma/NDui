@@ -38,7 +38,7 @@ BAG_ITEM_QUALITY_COLORS[LE_ITEM_QUALITY_POOR] = {r = .61, g = .61, b = .61}
 BAG_ITEM_QUALITY_COLORS[LE_ITEM_QUALITY_COMMON] = {r = 0, g = 0, b = 0}
 
 -- Fonts
-DB.Font = {STANDARD_TEXT_FONT, 12, "OUTLINE"}
+DB.Font = {STANDARD_TEXT_FONT, 14, "OUTLINE"}
 DB.TipFont = {GameTooltipText:GetFont(), 14, "OUTLINE"}
 DB.LineString = DB.GreyColor.."---------------"
 
@@ -80,6 +80,17 @@ DB.RightButton = " |TInterface\\TUTORIALFRAME\\UI-TUTORIAL-FRAME:13:11:0:-1:512:
 DB.ScrollButton = " |TInterface\\TUTORIALFRAME\\UI-TUTORIAL-FRAME:13:11:0:-1:512:512:12:66:127:204|t "
 DB.AFKTex = "|T"..FRIENDS_TEXTURE_AFK..":14:14:0:0:16:16:1:15:1:15|t"
 DB.DNDTex = "|T"..FRIENDS_TEXTURE_DND..":14:14:0:0:16:16:1:15:1:15|t"
+
+-- Register textures to LSM
+local LSM = LibStub("LibSharedMedia-3.0")
+
+if LSM ~= nil then
+    LSM:Register("statusbar","NDui Glow", DB.glowTex)
+    LSM:Register("statusbar","NDui Norm", DB.normTex)
+    LSM:Register("statusbar","NDui Gradient", DB.gradTex)
+    LSM:Register("statusbar","NDui Flat", DB.flatTex)
+    LSM:Register("statusbar","NDui Background", DB.bgTex)
+end
 
 -- Flags
 function DB:IsMyPet(flags)

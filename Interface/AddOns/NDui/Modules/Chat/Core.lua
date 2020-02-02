@@ -27,10 +27,15 @@ function module:UpdateChatSize()
 	if isScaling then return end
 	isScaling = true
 
+    pos_x = NDuiDB["UI"]["WorldDivX"][2]
+    pos_y = NDuiDB["UI"]["WorldDivY"][2]
+    -- print("set chat to "..tostring(pos_x)..", "..tostring(pos_y)..".")
 	ChatFrame1:ClearAllPoints()
-	ChatFrame1:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", 0, 28)
+	ChatFrame1:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", pos_x, pos_y)
 	ChatFrame1:SetWidth(NDuiDB["Chat"]["ChatWidth"])
 	ChatFrame1:SetHeight(NDuiDB["Chat"]["ChatHeight"])
+    -- This is need to make the move persistence
+    ChatFrame1:SetUserPlaced(true)
 	local bg = ChatFrame1.gradientBG
 	if bg then
 		bg:SetHeight(NDuiDB["Chat"]["ChatHeight"] + 30)
@@ -57,8 +62,11 @@ function module:SkinChat()
 	local eb = _G[name.."EditBox"]
 	eb:SetAltArrowKeyMode(false)
 	eb:ClearAllPoints()
-	eb:SetPoint("BOTTOMLEFT", self, "TOPLEFT", 4, 26)
-	eb:SetPoint("TOPRIGHT", self, "TOPRIGHT", -17, 50)
+	-- eb:SetPoint("BOTTOMLEFT", self, "TOPLEFT", 4, 26)
+	-- eb:SetPoint("TOPRIGHT", self, "TOPRIGHT", -17, 50)
+	eb:SetPoint("BOTTOMLEFT", self, "TOPLEFT", 0, 24)
+	eb:SetPoint("TOPRIGHT", self, "TOPRIGHT", -15, 54)
+	eb:SetFont(DB.Font[1], fontSize - 2, fontOutline)
 	B.SetBD(eb)
 	for i = 3, 8 do
 		select(i, eb:GetRegions()):SetAlpha(0)
@@ -73,7 +81,7 @@ function module:SkinChat()
 	local tab = _G[name.."Tab"]
 	tab:SetAlpha(1)
 	local tabFs = tab:GetFontString()
-	tabFs:SetFont(DB.Font[1], DB.Font[2]+2, fontOutline)
+	tabFs:SetFont(DB.Font[1], fontSize - 2, fontOutline)
 	tabFs:SetShadowColor(0, 0, 0, 0)
 	tabFs:SetTextColor(1, .8, 0)
 	B.StripTextures(tab, 7)
@@ -82,7 +90,13 @@ function module:SkinChat()
 	if NDuiDB["Chat"]["Lock"] then B.StripTextures(self) end
 	B.HideObject(self.buttonFrame)
 	B.HideObject(self.ScrollBar)
-	B.HideObject(self.ScrollToBottomButton)
+	-- B.HideObject(self.ScrollToBottomButton)
+
+    local frame = self.ScrollToBottomButton
+    frame:ClearAllPoints()
+	frame:SetPoint("TOPLEFT", self, "TOPRIGHT", -1, -45)
+	frame:SetPoint("BOTTOMLEFT", self, "TOPRIGHT", -1, -64)
+	frame:SetPoint("TOPRIGHT", self, "TOPRIGHT", 20, -45)
 
 	self.oldAlpha = self.oldAlpha or 0 -- fix blizz error, need reviewed
 
@@ -290,7 +304,7 @@ function module:OnLogin()
 	self:ChatWhisperSticky()
 	self:ChatFilter()
 	self:ChannelRename()
-	self:Chatbar()
+	-- self:Chatbar()
 	self:ChatCopy()
 	self:UrlCopy()
 	self:WhipserInvite()

@@ -4,7 +4,7 @@ local Bar = B:GetModule("Actionbar")
 local cfg = C.bars.bar5
 
 function Bar:CreateBar5()
-	local padding, margin = 2, 2
+	local padding, margin = NDuiDB["UI"]["ActionBarFramePadding"] * 2, NDuiDB["UI"]["ActionBarButtonMargin"]
 	local num = NUM_ACTIONBAR_BUTTONS
 	local buttonList = {}
 	local layout = NDuiDB["Actionbar"]["Style"]
@@ -15,6 +15,8 @@ function Bar:CreateBar5()
 	frame:SetHeight(num*cfg.size + (num-1)*margin + 2*padding)
 	if layout == 1 or layout == 4 or layout == 5 then
 		frame.Pos = {"RIGHT", UIParent, "RIGHT", -(frame:GetWidth()-1), 0}
+    elseif layout == 6 then
+        frame.Pos = {"RIGHT", NDui_ActionBar4, "LEFT", -padding, 0}
 	else
 		frame.Pos = {"RIGHT", UIParent, "RIGHT", -1, 0}
 	end

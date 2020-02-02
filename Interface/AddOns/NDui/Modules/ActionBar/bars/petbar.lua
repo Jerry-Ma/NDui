@@ -7,12 +7,15 @@ function Bar:CreatePetbar()
 	local padding, margin = 2, 3
 	local num = NUM_PET_ACTION_SLOTS
 	local buttonList = {}
+    local layout = NDuiDB["Actionbar"]["Style"]
 
 	--create the frame to hold the buttons
 	local frame = CreateFrame("Frame", "NDui_ActionBarPet", UIParent, "SecureHandlerStateTemplate")
 	frame:SetWidth(num*cfg.size + (num-1)*margin + 2*padding)
 	frame:SetHeight(cfg.size + 2*padding)
-	if NDuiDB["Actionbar"]["Style"] ~= 4 then
+    if layout == 6 then
+        frame.Pos = {"TOPLEFT", NDui_ActionBar3, "TOPRIGHT", padding, 0}
+	elseif layout ~= 4 then
 		frame.Pos = {"BOTTOM", UIParent, "BOTTOM", 0, 99}
 	else
 		frame.Pos = {"BOTTOM", UIParent, "BOTTOM", 0, 135}

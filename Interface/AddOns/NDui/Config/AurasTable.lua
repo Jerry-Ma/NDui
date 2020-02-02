@@ -7,16 +7,16 @@ local pairs, next, format, wipe = pairs, next, string.format, wipe
 local AuraWatchList = {}
 local groups = {
 	-- groups name = direction, interval, mode, iconsize, position, barwidth
-	["Player Aura"] = {"LEFT", 5, "ICON", 22, C.Auras.PlayerAuraPos},
-	["Target Aura"] = {"RIGHT", 5, "ICON", 36, C.Auras.TargetAuraPos},
-	["Special Aura"] = {"LEFT", 5, "ICON", 36, C.Auras.SpecialPos},
-	["Focus Aura"] = {"RIGHT", 5, "ICON", 35, C.Auras.FocusPos},
-	["Spell Cooldown"] = {"UP", 5, "BAR", 18, C.Auras.CDPos, 150},
-	["Enchant Aura"] = {"LEFT", 5, "ICON", 36, C.Auras.EnchantPos},
-	["Raid Buff"] = {"LEFT", 5, "ICON", 42, C.Auras.RaidBuffPos},
-	["Raid Debuff"] = {"RIGHT", 5, "ICON", 42, C.Auras.RaidDebuffPos},
-	["Warning"] = {"RIGHT", 5, "ICON", 42, C.Auras.WarningPos},
-	["InternalCD"] = {"UP", 5, "BAR", 18, C.Auras.InternalPos, 150},
+	["Player Aura"] = {"LEFT", 10, "ICON", 22, C.Auras.PlayerAuraPos},
+    ["Target Aura"] = {"RIGHT", 10, "ICON", 36, C.Auras.TargetAuraPos},
+    ["Special Aura"] = {"LEFT", 10, "ICON", 36, C.Auras.SpecialPos},
+    ["Focus Aura"] = {"RIGHT", 10, "ICON", 36, C.Auras.FocusPos},
+    ["Spell Cooldown"] = {"RIGHT", 14, "ICON", 36, C.Auras.CDPos},
+    ["Enchant Aura"] = {"LEFT", 10, "ICON", 36, C.Auras.EnchantPos},
+    ["Raid Buff"] = {"LEFT", 10, "ICON", 42, C.Auras.RaidBuffPos},
+    ["Raid Debuff"] = {"RIGHT", 10, "ICON", 42, C.Auras.RaidDebuffPos},
+	["Warning"] = {"RIGHT", 10, "ICON", 36, C.Auras.WarningPos},
+    ["InternalCD"] = {"DOWN", 10, "BAR", 22, C.Auras.InternalPos, 120},
 }
 
 local function newAuraFormat(value)

@@ -288,16 +288,17 @@ function UF:OnLogin()
 		UF:UpdateTextScale()
 	end
 
+    if NDuiDB["UFs"]["RaidFrame"] or NDuiDB["UI"]["HideBlizRaidFrame"] then
+        if CompactRaidFrameManager_SetSetting then
+            CompactRaidFrameManager_SetSetting("IsShown", "0")
+            UIParent:UnregisterEvent("GROUP_ROSTER_UPDATE")
+            CompactRaidFrameManager:UnregisterAllEvents()
+            CompactRaidFrameManager:SetParent(B.HiddenFrame)
+        end
+    end
+
 	if NDuiDB["UFs"]["RaidFrame"] then
 		UF:AddClickSetsListener()
-
-		-- Hide Default RaidFrame
-		if CompactRaidFrameManager_SetSetting then
-			CompactRaidFrameManager_SetSetting("IsShown", "0")
-			UIParent:UnregisterEvent("GROUP_ROSTER_UPDATE")
-			CompactRaidFrameManager:UnregisterAllEvents()
-			CompactRaidFrameManager:SetParent(B.HiddenFrame)
-		end
 
 		-- Group Styles
 		if showPartyFrame then

@@ -64,6 +64,8 @@ local list = {
 		{AuraID = 271466, UnitID = "player"},	-- 微光屏障
 		{AuraID = 124430, UnitID = "player"},	-- 暗影洞察
 		{AuraID = 197871, UnitID = "player"},	-- 黑暗天使长
+        {AuraID = 268998, UnitID = "player"},	-- Willow branch
+        {AuraID = 275544, UnitID = "player"},	-- Shadow Abyss
 	},
 	["Focus Aura"] = {		-- 焦点光环组
 		{AuraID = 139, UnitID = "focus", Caster = "player"},	-- 恢复
@@ -73,6 +75,25 @@ local list = {
 		{SlotID = 14},		-- 饰品2
 		{SpellID = 64843},	-- 神圣赞美诗
 		{SpellID = 33206},	-- 痛苦压制
+		{SpellID = 47536, UnitID = "player"},	-- Rapture
+	    {SpellID = 62618, UnitID = "player"},	-- barrier
+		{SpellID = 47540, UnitID = "player"},	-- Penace
+		{SpellID = 34433, UnitID = "player"},	-- Fiend
+        {SpellID = 204065, UnitID = "player"},	-- Shism
+        {SpellID = 129250, UnitID = "player"},	-- Solace
+        {SpellID = 214621, UnitID = "player"},	--
+        {SpellID = 8122, UnitID = "player"},	--
+        {SpellID = 527, UnitID = "player"},	--
+        {SpellID = 32375, UnitID = "player"},	--
+        {SpellID = 19236, UnitID = "player"},	--
+		{SpellID = 10060, UnitID = "player"},	-- 能量灌注
+	    {SpellID = 47788, UnitID = "player"},	-- Gardian of spirit
+	    {SpellID = 88625, UnitID = "player"},	-- ja
+	    {SpellID = 14914, UnitID = "player"},	-- holyfire
+	    {SpellID = 265202, UnitID = "player"},	-- shu
+	    {SpellID = 120517, UnitID = "player"},	-- halo
+	    {SpellID = 47585, UnitID = "player"},	-- disperse
+	    {SpellID = 69070, UnitID = "player"},	-- jump
 	},
 }
 

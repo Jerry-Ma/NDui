@@ -15,9 +15,10 @@ local function ForceDefaultSettings()
 	SetCVar("alwaysCompareItems", 1)
 	SetCVar("useCompactPartyFrames", 1)
 	SetCVar("lootUnderMouse", 1)
-	SetCVar("autoSelfCast", 1)
+	SetCVar("autoSelfCast", 0)
 	SetCVar("nameplateShowEnemies", 1)
 	SetCVar("nameplateShowAll", 1)
+    SetCVar("nameplateShowFriendlyNPCs", 0)
 	SetCVar("nameplateMotion", 1)
 	SetCVar("screenshotQuality", 10)
 	SetCVar("showTutorials", 0)
@@ -319,7 +320,8 @@ local function YesTutor()
 			ForceChatSettings()
 			UIErrorsFrame:AddMessage(DB.InfoColor..L["Chat Settings Check"])
 		elseif currentPage == 3 then
-			NDuiADB["LockUIScale"] = true
+			NDuiADB["LockUIScale"] = false
+			NDuiADB["UIScale"] = 0.64
 			B:SetupUIScale()
 			UIErrorsFrame:AddMessage(DB.InfoColor..L["UIScale Check"])
 		elseif currentPage == 4 then

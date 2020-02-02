@@ -7,6 +7,7 @@ function Bar:CreateLeaveVehicle()
 	local padding, margin = 10, 5
 	local num = 1
 	local buttonList = {}
+    local layout = NDuiDB["Actionbar"]["Style"]
 
 	--create the frame to hold the buttons
 	local frame = CreateFrame("Frame", "NDui_ActionBarExit", UIParent, "SecureHandlerStateTemplate")
@@ -14,6 +15,8 @@ function Bar:CreateLeaveVehicle()
 	frame:SetHeight(cfg.size + 2*padding)
 	if NDuiDB["Actionbar"]["Style"] == 3 then
 		frame.Pos = {"BOTTOM", UIParent, "BOTTOM", 0, 130}
+    elseif layout == 6 then
+		frame.Pos = {"TOPLEFT", NDui_ActionBar1, "TOPRIGHT",  0, 0}
 	else
 		frame.Pos = {"BOTTOM", UIParent, "BOTTOM", 320, 100}
 	end

@@ -54,6 +54,7 @@ end
 local modules, initQueue = {}, {}
 
 function B:RegisterModule(name)
+    -- print("Register Module <"..name..">")
 	if modules[name] then print("Module <"..name.."> has been registered.") return end
 	local module = {}
 	module.name = name
@@ -83,7 +84,7 @@ function B:SetupUIScale(init)
 		local ratio = 768 / DB.ScreenHeight
 		C.mult = (pixel / scale) - ((pixel - ratio) / scale)
 	elseif not InCombatLockdown() then
-		UIParent:SetScale(scale)
+        UIParent:SetScale(scale)
 	end
 end
 
@@ -107,10 +108,11 @@ B:RegisterEvent("PLAYER_LOGIN", function()
 	B:RegisterEvent("UI_SCALE_CHANGED", UpdatePixelScale)
 
 	for _, module in next, initQueue do
+        -- print("init Module <"..module.name..">")
 		if module.OnLogin then
 			module:OnLogin()
 		else
-			print("Module <"..module.name.."> does not loaded.")
+			print("Module <"..module.name.."> is not loaded.")
 		end
 	end
 
