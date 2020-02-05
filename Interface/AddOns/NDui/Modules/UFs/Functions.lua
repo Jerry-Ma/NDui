@@ -82,7 +82,7 @@ function UF:CreateHealthBar(self)
 	health:SetFrameLevel(self:GetFrameLevel() - 2)
 	health.backdrop = B.CreateBDFrame(health, 0, true) -- don't mess up with libs
 	health.shadow = health.backdrop.Shadow
-	B.SmoothBar(health)
+	B:SmoothBar(health)
 
 	local bg = health:CreateTexture(nil, "BACKGROUND")
 	bg:SetAllPoints()
@@ -135,19 +135,18 @@ function UF:CreateHealthText(self)
 		name:SetWidth(self:GetWidth()*.55)
 	end
 
-	local colorStr = self.Health.colorClass and "" or "[color]"
 	if mystyle == "player" then
-		self:Tag(name, " "..colorStr.."[name]")
+		self:Tag(name, " [color][name]")
 	elseif mystyle == "target" then
-		self:Tag(name, "[fulllevel] "..colorStr.."[name][afkdnd]")
+		self:Tag(name, "[fulllevel] [color][name][afkdnd]")
 	elseif mystyle == "focus" then
-		self:Tag(name, colorStr.."[name][afkdnd]")
+		self:Tag(name, "[color][name][afkdnd]")
 	elseif mystyle == "nameplate" then
 		self:Tag(name, "[nplevel][name]")
 	elseif mystyle == "arena" then
-		self:Tag(name, "[arenaspec] "..colorStr.."[name]")
+		self:Tag(name, "[arenaspec] [color][name]")
 	else
-		self:Tag(name, colorStr.."[name]")
+		self:Tag(name, "[color][name]")
 	end
 
     local fs1, fs2, fs3, fs4 = unpack(NDuiDB["UI"]["UFHealthTextFS"])
@@ -228,7 +227,7 @@ function UF:CreatePowerBar(self)
 	power:SetHeight(powerHeight)
 	power:SetFrameLevel(self:GetFrameLevel() - 2)
 	power.backdrop = B.CreateBDFrame(power, 0)
-	B.SmoothBar(power)
+	B:SmoothBar(power)
 
 	if self.Health.shadow then
 		self.Health.shadow:SetPoint("BOTTOMRIGHT", power.backdrop, C.mult+3, -C.mult-3)
