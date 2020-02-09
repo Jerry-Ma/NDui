@@ -82,7 +82,7 @@ local defaultSettings = {
 		BuffSize = 30,
 		BuffsPerRow = 16,
 		ReverseDebuffs = false,
-		DebuffSize = 34,
+		DebuffSize = 30,
 		DebuffsPerRow = 16,
 	},
 	AuraWatch = {
