@@ -280,6 +280,7 @@ local defaultSettings = {
 		HideJunkGuild = true,
 		AzeriteArmor = true,
 		OnlyArmorIcons = false,
+		CorruptionRank = true,
 	},
 	Misc = {
 		Mail = true,
@@ -892,6 +893,7 @@ local optionList = { -- type, key, value, name, horizon, doubleline
 		{},--blank
 		{1, "Tooltip", "AzeriteArmor", "|cff00cc4c"..L["Show AzeriteArmor"]},
 		{1, "Tooltip", "OnlyArmorIcons", L["Armor icons only"].."*", true},
+		{1, "Tooltip", "CorruptionRank", "|cff00cc4c"..L["ShowCorruptionRank"]},
 	},
 	[12] = {
 		{1, "Misc", "ItemLevel", "|cff00cc4c"..L["Show ItemLevel"]},
