@@ -167,18 +167,19 @@ function module:RecycleBin()
 	B.AddTooltip(bu, "ANCHOR_LEFT", L["Minimap RecycleBin"], "white")
 
 	local bin = CreateFrame("Frame", "RecycleBinFrame", UIParent)
-	bin:SetPoint("BOTTOMRIGHT", bu, "BOTTOMLEFT", -3, 10)
+    -- bin:SetPoint("BOTTOMRIGHT", bu, "BOTTOMLEFT", -3, 10)
+    bin:SetPoint("TOPRIGHT", bu, "BOTTOMRIGHT", 20, -10)
 	bin:Hide()
-	B.CreateGF(bin, 220, 40, "Horizontal", 0, 0, 0, 0, .7)
-	local topLine = CreateFrame("Frame", nil, bin)
-	topLine:SetPoint("BOTTOMRIGHT", bin, "TOPRIGHT", 1, 0)
-	B.CreateGF(topLine, 220, 1, "Horizontal", cr, cg, cb, 0, .7)
-	local bottomLine = CreateFrame("Frame", nil, bin)
-	bottomLine:SetPoint("TOPRIGHT", bin, "BOTTOMRIGHT", 1, 0)
-	B.CreateGF(bottomLine, 220, 1, "Horizontal", cr, cg, cb, 0, .7)
-	local rightLine = CreateFrame("Frame", nil, bin)
-	rightLine:SetPoint("LEFT", bin, "RIGHT", 0, 0)
-	B.CreateGF(rightLine, 1, 40, "Vertical", cr, cg, cb, .7, .7)
+	B.CreateGF(bin, 30, 220, "Vertical", 0, 0, 0, 0, .7)
+	-- local topLine = CreateFrame("Frame", nil, bin)
+	-- topLine:SetPoint("BOTTOMRIGHT", bin, "TOPRIGHT", 1, 0)
+	-- B.CreateGF(topLine, 220, 1, "Horizontal", cr, cg, cb, 0, .7)
+	-- local bottomLine = CreateFrame("Frame", nil, bin)
+	-- bottomLine:SetPoint("TOPRIGHT", bin, "BOTTOMRIGHT", 1, 0)
+	-- B.CreateGF(bottomLine, 220, 1, "Horizontal", cr, cg, cb, 0, .7)
+	-- local rightLine = CreateFrame("Frame", nil, bin)
+	-- rightLine:SetPoint("LEFT", bin, "RIGHT", 0, 0)
+	-- B.CreateGF(rightLine, 1, 40, "Vertical", cr, cg, cb, .7, .7)
 	bin:SetFrameStrata("TOOLTIP")
 
 	local function hideBinButton()
@@ -214,7 +215,7 @@ function module:RecycleBin()
 			if name and not blackList[name] and not isButtonSecure(name) then
 				if child:GetObjectType() == "Button" or strmatch(strupper(name), "BUTTON") then
 					child:SetParent(bin)
-					child:SetSize(34, 34)
+					child:SetSize(24, 24)
 					for j = 1, child:GetNumRegions() do
 						local region = select(j, child:GetRegions())
 						if region:GetObjectType() == "Texture" then
@@ -267,9 +268,9 @@ function module:RecycleBin()
 			if button:IsShown() then
 				button:ClearAllPoints()
 				if not lastbutton then
-					button:SetPoint("RIGHT", bin, -3, 0)
+					button:SetPoint("TOP", bin, 0, 0)
 				else
-					button:SetPoint("RIGHT", lastbutton, "LEFT", -3, 0)
+					button:SetPoint("TOP", lastbutton, "BOTTOM", 0, -3)
 				end
 				lastbutton = button
 			end

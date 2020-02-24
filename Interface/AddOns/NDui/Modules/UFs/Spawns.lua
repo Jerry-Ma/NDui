@@ -269,7 +269,7 @@ function UF:OnLogin()
 			boss[i] = oUF:Spawn("boss"..i, "oUF_Boss"..i)
 			local moverWidth, moverHeight = boss[i]:GetWidth(), boss[i]:GetHeight()+8
 			if i == 1 then
-				boss[i].mover = B.Mover(boss[i], L["BossFrame"]..i, "Boss1", {"RIGHT", UIParent, "RIGHT", -350, -90}, moverWidth, moverHeight)
+				boss[i].mover = B.Mover(boss[i], L["BossFrame"]..i, "Boss1", {"LEFT", "NDui_ActionBarExtra", "LEFT", 0, 220}, moverWidth, moverHeight)
 			else
 				boss[i].mover = B.Mover(boss[i], L["BossFrame"]..i, "Boss"..i, {"BOTTOM", boss[i-1], "TOP", 0, 50}, moverWidth, moverHeight)
 			end

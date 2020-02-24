@@ -57,7 +57,7 @@ C.bars = {
     },
     -- EXTRABAR 额外动作条
     extrabar = {
-		size    	        = 56,		-- 动作条大小
+		size    	        = 72,		-- 动作条大小
 		fader				= nil,		-- 鼠标悬停显隐
     },
     -- VEHICLE EXIT 离开载具按钮

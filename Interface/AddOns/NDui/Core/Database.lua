@@ -90,6 +90,16 @@ if LSM ~= nil then
     LSM:Register("statusbar","NDui Gradient", DB.gradTex)
     LSM:Register("statusbar","NDui Flat", DB.flatTex)
     LSM:Register("statusbar","NDui Background", DB.bgTex)
+
+    -- RayUI Media
+    local RayUIMedia = Media.."RayUI\\"
+    -- Fonts
+    LSM:Register("font", "RayUI Font", RayUIMedia.."Fonts\\LiHei.ttf", LSM.LOCALE_BIT_zhCN)
+    LSM:Register("font", "PT Sans Narrow", RayUIMedia.."Fonts\\PTSansNarrow.ttf", LSM.LOCALE_BIT_zhCN)
+    LSM:Register("font", "RayUI Roadway", RayUIMedia.."Fonts\\Roadway.ttf", LSM.LOCALE_BIT_zhCN)
+    LSM:Register("statusbar", "RayUINormal", RayUIMedia.."Textures\\Statusbar1.tga")
+    LSM:Register("statusbar", "RayUILight", RayUIMedia.."Textures\\Statusbar2.tga")
+    LSM:Register("statusbar", "RayUIDark", RayUIMedia.."Textures\\Statusbar3.tga")
 end
 
 -- Flags

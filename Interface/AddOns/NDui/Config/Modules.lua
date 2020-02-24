@@ -27,14 +27,15 @@ C.Auras = {
 	RaidBuffPos		= {"CENTER", UIParent, "CENTER", -C.UI.WorldDivX[2], C.UI.WorldDivY[4]},		-- 团队增益分组
 	RaidDebuffPos	= {"CENTER", UIParent, "CENTER", C.UI.WorldDivX[2], C.UI.WorldDivY[4]},			-- 团队减益分组
 	WarningPos		= {"BOTTOMLEFT", UIParent, "BOTTOM", C.UI.WorldDivX[2], C.UI.WorldDivY[3]},		-- 目标重要光环分组
-	InternalPos		= {"TOPRIGHT", UIParent, "BOTTOM", C.UI.WorldDivX[3], C.UI.WorldDivY[5]},	-- 法术内置冷却分组
+	-- InternalPos		= {"TOPRIGHT", UIParent, "BOTTOM", C.UI.WorldDivX[3], C.UI.WorldDivY[5]},	-- 法术内置冷却分组
+	InternalPos		= {"BOTTOMLEFT", UIParent, "LEFT", 5, 80},	-- 法术内置冷却分组
 }
 
 -- 头像相关
 C.UFs = {
 	Playercb		= {"BOTTOM", UIParent, "BOTTOM", 0, C.UI.WorldDivX[6]},			-- 玩家施法条默认位置
 	Targetcb		= {"BOTTOMLEFT", UIParent, "BOTTOM", -196, 280},			-- 目标施法条默认位置
-	Focuscb			= {"TOP", UIParent, "TOP", 10, -200},			-- 焦点施法条默认位置
+	Focuscb			= {"TOP", UIParent, "TOP", 10, -180},			-- 焦点施法条默认位置
 
 	PlayerPos		= {"TOPRIGHT", UIParent, "BOTTOM", -208, 274},		-- 玩家框体默认位置
 	TargetPos		= {"TOPLEFT", UIParent, "BOTTOM", 208, 274},		-- 目标框体默认位置
@@ -57,7 +58,7 @@ C.Minimap = {
 -- 美化及皮肤
 C.Skins = {
 	MicroMenuPos 	= {"BOTTOM", UIParent, "BOTTOM", 0, 2.5},			-- 微型菜单默认坐标
-	RMPos  			= {"BOTTOMLEFT", QuickJoinToastButton, "TOPLEFT", 25, 7},					-- 团队工具默认坐标
+	RMPos  			= {"BOTTOMLEFT", QuickJoinToastButton, "TOPLEFT", 24, 73},					-- 团队工具默认坐标
 }
 
 -- 鼠标提示框
